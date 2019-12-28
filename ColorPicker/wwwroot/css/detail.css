@@ -1,0 +1,38 @@
+﻿#mainSwatch {
+    width: 100%;
+    height: 500px;
+    border-color: #888;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+#mainSwatch .swatchLabel {
+    font-size: 28px;
+}
+
+#clearBtnContainer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#clearBtn {
+    min-width: 250px;
+}
+
+#tints {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    #tints .swatch {
+        width: 150px;
+        height: 150px;
+    }
+
+@media only screen and (max-width:676px) {
+    #tints {
+        justify-content: center;
+    }
+}

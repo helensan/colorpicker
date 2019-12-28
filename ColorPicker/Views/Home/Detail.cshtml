@@ -1,0 +1,37 @@
+﻿@model ColorPicker.Models.DetailViewModel
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+@section CSS {
+    <environment include="Development">
+        <link href="~/css/detail.css" rel="stylesheet" />
+    </environment>
+    <environment include="Production">
+        <link href="~/css/detail.min.css" rel="stylesheet" asp-append-version="true"/>
+    </environment>
+}
+
+
+
+        <div id="mainSwatch" class="swatch" style="background:@Model.Color.HexCode">
+
+            <div class="swatchLabel">@Model.Color.Name, @Model.Color.HexCode.ToLower()</div>
+        </div>
+        <div id="tints">
+            @foreach (var item in Model.Tints)
+            {
+             <div class="swatch" style="background:@item">
+                <div class="swatchLabel">@item.ToLower()</div>
+             </div>
+
+            }
+        </div>
+        <div id="clearBtnContainer">
+            <form asp-controller="Home" asp-action="Index">
+                <button id="clearBtn" type="submit">Clear</button>
+            </form>
+        </div>
+
+

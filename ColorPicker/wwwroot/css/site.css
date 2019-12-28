@@ -1,0 +1,148 @@
+﻿body {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 16px;
+    color: #444;
+}
+
+h1, h2, h3, h4, b, strong {
+    font-weight: 700;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+nav {
+    background: #363c3c;
+    color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#searchBar {
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    padding: 8px 10px;
+}
+
+#searchBarContainer {
+    width: 200px;
+}
+
+button {
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: 700;
+    background: #fff;
+    font-size: 18px;
+}
+
+.ui-autocomplete {
+    z-index: 100000;
+    padding: 0;
+    background: #fff;
+    box-shadow: 0 6px 10px 0 rgba(189,189,189,.5);
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.ui-menu-item {
+    padding: 10px;
+}
+
+    .ui-menu-item:hover {
+        cursor: pointer;
+        background: #f5f5f5;
+    }
+
+.ui-helper-hidden-accessible {
+    display: none;
+}
+
+#mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 90px);
+    height: 100%;
+}
+
+#menu {
+    background: #d6d8d8;
+    box-shadow: 0px 6px 6px 0px rgba(189,189,189,1);
+    padding: 60px 40px;
+    width: 300px;
+}
+
+#colorNameList {
+    margin: 20px 0;
+}
+
+    #colorNameList ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        #colorNameList ul li {
+            padding: 10px 0;
+        }
+
+            #colorNameList ul li a {
+                color: #444;
+            }
+
+#randomColorBtn {
+    width: 100%;
+}
+
+#main {
+    width: calc(100% - 300px);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    padding: 60px 40px;
+}
+
+.swatch {
+    margin: 20px;
+    width: 180px;
+    height: 200px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0px 1px 6px 4px rgba(189,189,189,0.5);
+    display: flex;
+    align-items: flex-end;
+}
+
+.swatchLabel, .swatchLabel:hover {
+    background: #fff;
+    padding: 10px;
+    width: 100%;
+    color: #444;
+    text-decoration: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.swatchLink, .swatchLink:hover {
+    text-decoration: none;
+}
+
+.colorGroupBtn.active {
+    font-weight: 700;
+}
+
+@media only screen and (max-width:676px) {
+    nav {
+        padding: 20px;
+    }
+    #menu, #main {
+        width: 100%;
+        padding: 40px 20px;
+    }
+}

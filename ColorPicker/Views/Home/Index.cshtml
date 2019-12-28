@@ -1,0 +1,70 @@
+﻿@model ColorPicker.Models.ListViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+@section CSS {
+    <environment include="Development">
+        <link href="~/css/home.css" rel="stylesheet" />
+    </environment>
+    <environment include="Production">
+        <link href="~/css/home.min.css" rel="stylesheet" asp-append-version="true"/>
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/home.js"></script>
+    </environment>
+    <environment include="Production">
+        <script src="~/js/home.min.js" asp-append-version="true"></script>
+    </environment>
+    @if (Model.ColorGroup != null)
+    {
+        <script>
+            if ($('.colorGroupBtn[data-color="@Model.ColorGroup"]').length > 0) {
+                $('.colorGroupBtn[data-color="@Model.ColorGroup"]').addClass('active');
+                $('#clearBtn').show();
+            }
+        </script>
+    }
+}
+
+
+<div id="pages">
+    <div class="page active" data-page="0">
+        @for (int j = 0; j < 12 && j < Model.Colors.Count; j++)
+        {
+            <a class="swatchLink" title="@Model.Colors[j].Name" asp-controller="Home" asp-action="Detail" asp-route-hexCode="@Model.Colors[j].HexCode">
+                <div class="swatch" style="background:@Model.Colors[j].HexCode">
+
+                    <div class="swatchLabel">@Model.Colors[j].HexCode.ToLower()</div>
+                </div>
+            </a>
+        }
+    </div>
+    @{ int pageCount = 1; }
+    @for (int i = 1; i < Math.Ceiling((double)Model.Colors.Count / 12); i++)
+    {
+        <div class="page" data-page="@i">
+            @for (int j = 0; j < 12 && (i * 12) + j < Model.Colors.Count; j++)
+            {
+                <a class="swatchLink" title="@Model.Colors[(i * 12) + j].Name" asp-controller="Home" asp-action="Detail" asp-route-hexCode="@Model.Colors[(i * 12) + j].HexCode">
+                    <div class="swatch" style="background:@Model.Colors[(i * 12) + j].HexCode">
+
+                        <div class="swatchLabel">@Model.Colors[(i * 12) + j].HexCode.ToLower()</div>
+                    </div>
+                </a>
+            }
+        </div>
+        { pageCount++; }
+    }
+</div>
+<div id="pageIdxContainer">
+    <div><a class="pageIdx active" data-page="0">0</a></div>
+    @for (var k = 1; k < pageCount; k++)
+    {
+        <div><a class="pageIdx" data-page="@k">@k</a></div>
+    }
+</div>
