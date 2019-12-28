@@ -1,4 +1,7 @@
-﻿
+﻿#pages {
+    position: relative;
+    width: 100%;
+}
 
 .page {
     display: flex;

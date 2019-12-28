@@ -31,6 +31,7 @@ nav {
 
 #searchBarContainer {
     width: 200px;
+    padding-top: 10px;
 }
 
 button {
