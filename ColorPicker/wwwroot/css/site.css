@@ -77,6 +77,7 @@ button {
     box-shadow: 0px 6px 6px 0px rgba(189,189,189,1);
     padding: 60px 40px;
     width: 300px;
+    position: relative;
 }
 
 #colorNameList {
